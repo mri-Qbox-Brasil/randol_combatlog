@@ -55,7 +55,7 @@ AddEventHandler('playerDropped', function(reason)
         cid = cachedCids[src].cid,
         license = cachedCids[src].license,
         name = cachedCids[src].name,
-        reason = reason or 'Unknown Reason',
+        reason = reason or 'Desconhecido',
         coords = vec4(coords.x, coords.y, coords.z-1.0, heading),
         model = model,
         skin = skin,

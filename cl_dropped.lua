@@ -5,7 +5,7 @@ function clearEverything()
     if next(temp) then
         for cid, data in pairs(temp) do
             if DoesEntityExist(data.entity) then
-                exports['qb-target']:RemoveTargetEntity(data.entity, 'View Information')
+                exports['qb-target']:RemoveTargetEntity(data.entity, 'Visualizar informações')
                 DeleteEntity(data.entity)
             end
             if DoesEntityExist(data.prop) then
@@ -61,7 +61,7 @@ local function boardScaleform(data)
             Wait(0)
         end
     end)
-    callScaleformMethod(handle, 'SET_BOARD', 'INSERT SERVER NAME', data.name, 'Fuck all my opps.', ('Reason: %s'):format(data.reason), 0, data.id, 116)
+    callScaleformMethod(handle, 'SET_BOARD', 'MRI QBOX', data.name, 'Desconectado.', ('Motivo: %s'):format(data.reason), 0, data.id, 116)
 end
 
 local function attachBoard(ped)
@@ -107,7 +107,7 @@ RegisterNetEvent('randol_combatlog:client:onDropped', function(data)
         options = {
             {
                 icon = 'fa-solid fa-circle-info',
-                label = 'View Information',
+                label = 'Ver informações',
                 action = function()
                     local menu = {
                         {
@@ -115,9 +115,9 @@ RegisterNetEvent('randol_combatlog:client:onDropped', function(data)
                             description = ('Reason: %s'):format(data.reason),
                             icon = 'circle-info',
                             onSelect = function()
-                                local info = ('**Character Name**: %s\n**ID**: %s\n**License**: %s\n**Reason**: %s'):format(data.name, data.id, data.license, data.reason)
+                                local info = ('**Nome do personagem**: %s\n**ID**: %s\n**Licença**: %s\n**Motivo**: %s'):format(data.name, data.id, data.license, data.reason)
                                 lib.setClipboard(info)
-                                lib.notify({ title = 'Player Information', description = 'Copied the player\'s information.', position = 'center-right'})
+                                lib.notify({ title = 'Informações do jogador', description = 'Copiou as informações do jogador.', position = 'center-right'})
                             end,
                         }, 
                     }
@@ -129,9 +129,9 @@ RegisterNetEvent('randol_combatlog:client:onDropped', function(data)
         distance = 1.2,
     })
 
-    SetTimeout(15000, function()
+    SetTimeout(60000, function()
         if DoesEntityExist(temp[data.cid].entity) then
-            exports['qb-target']:RemoveTargetEntity(temp[data.cid].entity, 'View Information')
+            exports['qb-target']:RemoveTargetEntity(temp[data.cid].entity, 'Visualizar informações')
             DeleteEntity(temp[data.cid].entity)
         end
         if DoesEntityExist(temp[data.cid].prop) then
