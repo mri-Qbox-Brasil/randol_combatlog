@@ -94,6 +94,7 @@ RegisterNetEvent('randol_combatlog:client:onDropped', function(data)
     FreezeEntityPosition(temp[data.cid].entity, true)
     SetEntityAlpha(temp[data.cid].entity, 180)
     SetModelAsNoLongerNeeded(data.model)
+    SetEntityCollision(temp[data.cid].entity, false, false)
 
     lib.requestAnimDict('mp_character_creation@customise@male_a')
     TaskPlayAnim(temp[data.cid].entity, 'mp_character_creation@customise@male_a', 'loop', 5.0, 5.0, -1, 01, 0, 0, 0, 0)
